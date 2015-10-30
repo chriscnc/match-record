@@ -14,10 +14,10 @@ To emulate the `deftype` macro from the Racket EOPL dialect, and to have some fu
 (defrecord AppExp [rator rand])
 
 ; And such an AST...
-(def e (AppExp. (LambdaExp. (VarExp. 'a)
-                            (AppExp. (VarExp. 'a)
-                                     (VarExp. 'b)))
-                (VarExp. 'c)))
+(def ast (AppExp. (LambdaExp. (VarExp. 'a)
+                              (AppExp. (VarExp. 'a)
+                                       (VarExp. 'b)))
+                  (VarExp. 'c)))
 
 ; which represents...
  ((lambda (a) (a b)) c)
@@ -49,7 +49,7 @@ To emulate the `deftype` macro from the Racket EOPL dialect, and to have some fu
                                  (unparse-ast rand))
     _ -> (throw (Exception. "No match for type"))))
 
-(unparse-ast e) ;-> ((lambda (a) (a b)) c)
+(unparse-ast ast) ;-> ((lambda (a) (a b)) c)
 ```
 
 ## License
