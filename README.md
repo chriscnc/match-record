@@ -52,6 +52,13 @@ To emulate the `deftype` macro from the Racket EOPL dialect, and to have some fu
 (unparse-ast ast) ;-> ((lambda (a) (a b)) c)
 ```
 
+## Todo
+Undoubtably, when errors would occur in the clauses passed to the macro, the likely error messages would not be pretty and perhaps not very helpful, potentially leaking the details of the macro implementation to users.  Pending the validation of these statements, future work would be to improve the robustness of the macro and provide error messages that don't leak implementation details.
+
+* Validation of the clause forms
+* Handling of match variable ids that don't exist in the record.
+
+
 ## License
 
 Copyright © 2015 Chris Cornelison
